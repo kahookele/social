@@ -2,6 +2,18 @@
   <div class="container-sm w-50 border border-3 rounded p-2">
     <h1 class="text-center">Register account here</h1>
     <%= form_with(model: @user, url: sign_up_index_path, class: "form") do |form| %>
+
+      <% if @user.errors.any? %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
       <div class="form-group mb-3">
         <%= form.label :firstname, class: "fw-semibold" %>
         <%= form.text_field :firstname, class: "form-control" %>
@@ -29,8 +41,8 @@
 
       <div class="form-group mb-3">
         <%= form.label :status, class: "fw-semibold" %> </br>
-        <%= form.radio_button :status, "Learner" %> Learn
-        <%= form.radio_button :status, "Educator" %> Educate
+        <%= form.radio_button :status, "learn" %> Learn
+        <%= form.radio_button :status, "educate" %> Educate
       </div>
 
       <%= form.submit "Submit", class: "btn btn-primary" %>
