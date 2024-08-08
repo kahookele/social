@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root to: "home#index"
+  resources :home, only: [:index, :destroy]
 
   resources :sign_up, only: [:new, :create]
 end
