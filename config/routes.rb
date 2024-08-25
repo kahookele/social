@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   root to: "home#index"
   resources :home, only: [:index, :destroy]
-
+  resources :login, only: [:new, :create]
   resources :sign_up, only: [:new, :create]
 end
