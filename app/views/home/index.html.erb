@@ -1,7 +1,22 @@
 <%= render "shared/navbar" %>
 
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section>
+  <div class='container-fluid bg-success-subtle' style='height: 500px'>
+    <div class='row h-100'>
+      <div class='col d-flex flex-column justify-content-center align-items-center gap-3 text-center p-3'>
+        <h2>Welcome to your educational journey!</h2>
+        <p>
+          Take the opportunity to actively engage in learning by seeking out knowledge and insights from other users, who may have diverse experiences and perspectives to share. By doing so, you can broaden your understanding of various topics, gaining valuable skills and ideas that might not be accessible through traditional means. Additionally, consider contributing to the community by educating others on new career paths and opportunities. Sharing your expertise and guidance can help others navigate their professional journeys, potentially opening doors to new possibilities and fostering a collaborative environment where everyone benefits from collective growth and shared learning.
+          </p>
+        <%= link_to 'Get Started', new_sign_up_path, class: 'btn btn-light' %>
+      </div>
+      <div class='col'>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <% if current_user.present? %>
   <%= link_to "Logout", home_index_path, method: :delete, class: "nav-link" %>
 <% end %>
